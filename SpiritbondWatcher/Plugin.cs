@@ -1,13 +1,11 @@
 ﻿namespace SpiritbondWatcher;
 
-using System.Diagnostics;
 using Dalamud.Data;
 using Dalamud.Game.ClientState;
 using Dalamud.Game.Command;
 using Dalamud.Game.Gui;
 using Dalamud.Game.Text;
 using Dalamud.IoC;
-using Dalamud.Logging;
 using Dalamud.Plugin;
 using Lumina.Excel.GeneratedSheets;
 
@@ -36,7 +34,6 @@ public class Plugin : IDalamudPlugin
 
         this.CommandManager.AddHandler("/sbw", new CommandInfo(this.OnCommand));
         this.Client.TerritoryChanged += this.OnZoneChange;
-        PluginLog.Debug("Loaded");
     }
 
     private void OnZoneChange(object? sender, ushort e)
@@ -48,17 +45,11 @@ public class Plugin : IDalamudPlugin
     {
         Task.Run(() =>
         {
-            var sw = Stopwatch.StartNew();
-            PluginLog.Debug("Searching...");
-
             var items =
                 (from bondedItem in Inventory.GetBondedItems()
                     join item in this.Data.Excel.GetSheet<Item>()
                         on bondedItem equals item.RowId
                     select item.Name).ToList();
-
-            sw.Stop();
-            PluginLog.Debug("Completed searching in {0}ms", sw.ElapsedMilliseconds);
 
             if (items.Any())
             {
@@ -72,8 +63,6 @@ public class Plugin : IDalamudPlugin
 
     public void Dispose()
     {
-        PluginLog.Debug("Disposing");
-        
         this.CommandManager.RemoveHandler("/sbw");
         this.Client.TerritoryChanged -= this.OnZoneChange;
         this.PluginInterface.Dispose();
