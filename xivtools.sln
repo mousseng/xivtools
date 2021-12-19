@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMouseover", "SimpleMouseover\SimpleMouseover.csproj", "{B64A8B05-020C-4F5B-AFEA-64B3D75DF236}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiritbondWatcher", "SpiritbondWatcher\SpiritbondWatcher.csproj", "{4459AE4E-D3C3-4FD7-8C47-957C7A8C0567}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B64A8B05-020C-4F5B-AFEA-64B3D75DF236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64A8B05-020C-4F5B-AFEA-64B3D75DF236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64A8B05-020C-4F5B-AFEA-64B3D75DF236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64A8B05-020C-4F5B-AFEA-64B3D75DF236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4459AE4E-D3C3-4FD7-8C47-957C7A8C0567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4459AE4E-D3C3-4FD7-8C47-957C7A8C0567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4459AE4E-D3C3-4FD7-8C47-957C7A8C0567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4459AE4E-D3C3-4FD7-8C47-957C7A8C0567}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
