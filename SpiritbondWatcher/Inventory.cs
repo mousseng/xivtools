@@ -4,31 +4,12 @@ using FFXIVClientStructs.FFXIV.Client.Game;
 
 public static unsafe class Inventory
 {
-    private static readonly InventoryType[] InventoriesToSearch = {
-        InventoryType.EquippedItems,
-        InventoryType.ArmoryBody,
-        InventoryType.ArmoryEar,
-        InventoryType.ArmoryFeets,
-        InventoryType.ArmoryHands,
-        InventoryType.ArmoryHead,
-        InventoryType.ArmoryLegs,
-        InventoryType.ArmoryNeck,
-        InventoryType.ArmoryRings,
-        InventoryType.ArmoryWrist,
-        InventoryType.ArmoryMainHand,
-        InventoryType.ArmoryOffHand,
-        // InventoryType.Inventory1,
-        // InventoryType.Inventory2,
-        // InventoryType.Inventory3,
-        // InventoryType.Inventory4,
-    };
-    
-    public static IEnumerable<uint> GetBondedItems()
+    public static IEnumerable<uint> GetBondedItems(IEnumerable<InventoryType> inventoriesToSearch)
     {
         var bondedItems = new List<uint>();
         var manager = InventoryManager.Instance();
 
-        foreach (var invType in InventoriesToSearch)
+        foreach (var invType in inventoriesToSearch)
         {
             var container = manager->GetInventoryContainer(invType);
             var size = container->Size;

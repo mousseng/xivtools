@@ -4,14 +4,13 @@ using Dalamud.Data;
 using Dalamud.Game.ClientState;
 using Dalamud.Game.Command;
 using Dalamud.Game.Gui;
-using Dalamud.Game.Text;
 using Dalamud.IoC;
 using Dalamud.Plugin;
-using Lumina.Excel.GeneratedSheets;
 
 public class Plugin : IDalamudPlugin
 {
     public string Name => "Spiritbond Watcher";
+    private const string Command = "/sbw";
     
     private DalamudPluginInterface PluginInterface { get; }
     private CommandManager CommandManager { get; }
@@ -32,38 +31,23 @@ public class Plugin : IDalamudPlugin
         this.Data = data;
         this.Chat = chat;
 
-        this.CommandManager.AddHandler("/sbw", new CommandInfo(this.OnCommand));
+        this.CommandManager.AddHandler(Command, new CommandInfo(this.OnCommand));
         this.Client.TerritoryChanged += this.OnZoneChange;
     }
 
     private void OnZoneChange(object? sender, ushort e)
     {
-        this.OnCommand("/sbw", "");
+        this.OnCommand(Command, "");
     }
 
     private void OnCommand(string cmd, string args)
     {
-        Task.Run(() =>
-        {
-            var items =
-                (from bondedItem in Inventory.GetBondedItems()
-                    join item in this.Data.Excel.GetSheet<Item>()
-                        on bondedItem equals item.RowId
-                    select item.Name).ToList();
-
-            if (items.Any())
-            {
-                this.Chat.PrintChat(new XivChatEntry
-                {
-                    Message = "Gear fully bonded: " + string.Join(", ", items)
-                });
-            }
-        });
+        Task.Run(() => GearChecker.CheckGear(this.Data, this.Chat));
     }
 
     public void Dispose()
     {
-        this.CommandManager.RemoveHandler("/sbw");
+        this.CommandManager.RemoveHandler(Command);
         this.Client.TerritoryChanged -= this.OnZoneChange;
         this.PluginInterface.Dispose();
     }
