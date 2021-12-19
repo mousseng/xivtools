@@ -44,7 +44,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="spiritbondWatcher.yaml" />
       <Content Include="spiritbondWatcher.yaml">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>

@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMouseover", "SimpleMo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiritbondWatcher", "SpiritbondWatcher\SpiritbondWatcher.csproj", "{4459AE4E-D3C3-4FD7-8C47-957C7A8C0567}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rangefinder", "Rangefinder\Rangefinder.csproj", "{05D71512-7DEF-430B-8FB7-AADDB868B144}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{4459AE4E-D3C3-4FD7-8C47-957C7A8C0567}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4459AE4E-D3C3-4FD7-8C47-957C7A8C0567}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4459AE4E-D3C3-4FD7-8C47-957C7A8C0567}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05D71512-7DEF-430B-8FB7-AADDB868B144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D71512-7DEF-430B-8FB7-AADDB868B144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05D71512-7DEF-430B-8FB7-AADDB868B144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05D71512-7DEF-430B-8FB7-AADDB868B144}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
