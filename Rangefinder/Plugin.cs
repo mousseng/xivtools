@@ -6,7 +6,7 @@ using Dalamud.Game.Text;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 
-public class Plugin : IDalamudPlugin
+public sealed class Plugin : IDalamudPlugin
 {
     public string Name => "Rangefinder";
     
@@ -40,7 +40,6 @@ public class Plugin : IDalamudPlugin
 
     public void Dispose()
     {
-        this.PluginInterface.Dispose();
         this.CommandManager.RemoveHandler("/rf");
     }
 }

@@ -7,7 +7,7 @@ using Dalamud.Game.Gui;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 
-public class Plugin : IDalamudPlugin
+public sealed class Plugin : IDalamudPlugin
 {
     public string Name => "Spiritbond Watcher";
     private const string Command = "/sbw";
@@ -49,6 +49,5 @@ public class Plugin : IDalamudPlugin
     {
         this.CommandManager.RemoveHandler(Command);
         this.Client.TerritoryChanged -= this.OnZoneChange;
-        this.PluginInterface.Dispose();
     }
 }
