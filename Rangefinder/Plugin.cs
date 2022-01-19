@@ -1,8 +1,7 @@
 ﻿namespace Rangefinder;
 
-using Dalamud.Game.Command;
-using Dalamud.Game.Gui;
-using Dalamud.Game.Text;
+using Dalamud.Game.ClientState;
+using Dalamud.Game.ClientState.Objects;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 
@@ -10,36 +9,22 @@ public sealed class Plugin : IDalamudPlugin
 {
     public string Name => "Rangefinder";
     
-    private DalamudPluginInterface PluginInterface { get; init; }
-    private CommandManager CommandManager { get; init; }
-    private ChatGui Chat { get; init; }
+    private DalamudPluginInterface PluginInterface { get; }
+    private RangefinderUi RangefinderUi { get; }
 
     public Plugin(
         [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
-        [RequiredVersion("1.0")] CommandManager commandManager,
-        [RequiredVersion("1.0")] ChatGui chat)
+        [RequiredVersion("1.0")] ClientState clientState,
+        [RequiredVersion("1.0")] TargetManager targetManager)
     {
         this.PluginInterface = pluginInterface;
-        this.CommandManager = commandManager;
-        this.Chat = chat;
+        this.RangefinderUi = new(this.PluginInterface, clientState, targetManager);
 
-        this.CommandManager.AddHandler("/rf", new CommandInfo(this.OnCommand)
-        {
-            // TODO
-        });
-    }
-
-    private void OnCommand(string cmd, string args)
-    {
-        this.Chat.PrintChat(new XivChatEntry
-        {
-            Message = "Hello world from the plugin",
-            Type = XivChatType.Debug,
-        });
+        this.PluginInterface.UiBuilder.Draw += this.RangefinderUi.Draw;
     }
 
     public void Dispose()
     {
-        this.CommandManager.RemoveHandler("/rf");
+        this.PluginInterface.UiBuilder.Draw -= this.RangefinderUi.Draw;
     }
 }
