@@ -179,8 +179,8 @@ public sealed unsafe class RangefinderUi
             var src = player.Position;
             var dst = target.Position;
         
-            var xyDist = Math.Sqrt(Math.Pow(dst.X - src.X, 2) + Math.Pow(dst.Y - src.Y, 2)) - target.HitboxRadius;
-            var distanceText = xyDist.ToString("F1") + "y";
+            var xzDist = Math.Sqrt(Math.Pow(dst.X - src.X, 2) + Math.Pow(dst.Z - src.Z, 2)) - target.HitboxRadius;
+            var distanceText = xzDist.ToString("F1") + "y";
             
             textNode->SetText(distanceText);
         }
