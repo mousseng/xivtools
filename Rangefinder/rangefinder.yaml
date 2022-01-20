@@ -1,6 +1,6 @@
 ﻿name: Rangefinder
 author: Lin Sivvi
-description: A test plugin
+description: Shows you precisely how far your target is.
 internal_name: Rangefinder
 repo_url: https://github.com/mousseng/xivtools
 dalamud_api_level: 5

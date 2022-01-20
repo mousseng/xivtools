@@ -1,0 +1,52 @@
+﻿[
+    {
+        "Author": "Lin Sivvi",
+        "Name": "Rangefinder",
+        "Punchline": "Shows you precisely how far your target is.",
+        "Description": "Shows you precisely how far your target is.",
+        "Changelog": "",
+        "InternalName": "Rangefinder",
+        "AssemblyVersion": "2.0.0.0",
+        "RepoUrl": "https://github.com/mousseng/xivtools",
+        "ApplicableVersion": "any",
+        "CategoryTags": [
+        ],
+        "DalamudApiLevel": 5,
+        "IconUrl": "",
+        "ImageUrls": [
+            ""
+        ],
+        "DownloadLinkInstall": "https://github.com/mousseng/xivtools/raw/main/plugins/Rangefinder/latest.zip",
+        "IsHide": false,
+        "IsTestingExclusive": false,
+        "DownloadLinkTesting": "https://github.com/mousseng/xivtools/raw/main/plugins/Rangefinder/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/mousseng/xivtools/raw/main/plugins/Rangefinder/latest.zip",
+        "DownloadCount": 0,
+        "LastUpdated": ""
+    },
+    {
+        "Author": "Lin Sivvi",
+        "Name": "Spiritbond Watcher",
+        "Punchline": "Tells you when to extract materia when you're actually paying attention.",
+        "Description": "Tells you when to extract materia when you're actually paying attention.",
+        "Changelog": "",
+        "InternalName": "SpiritbondWatcher",
+        "AssemblyVersion": "1.0.0.0",
+        "RepoUrl": "https://github.com/mousseng/xivtools",
+        "ApplicableVersion": "any",
+        "CategoryTags": [
+        ],
+        "DalamudApiLevel": 5,
+        "IconUrl": "",
+        "ImageUrls": [
+            ""
+        ],
+        "DownloadLinkInstall": "https://github.com/mousseng/xivtools/raw/main/plugins/SpiritbondWatcher/latest.zip",
+        "IsHide": false,
+        "IsTestingExclusive": false,
+        "DownloadLinkTesting": "https://github.com/mousseng/xivtools/raw/main/plugins/SpiritbondWatcher/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/mousseng/xivtools/raw/main/plugins/SpiritbondWatcher/latest.zip",
+        "DownloadCount": 0,
+        "LastUpdated": ""
+    }
+]

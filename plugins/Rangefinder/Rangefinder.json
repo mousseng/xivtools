@@ -1,0 +1,11 @@
+{
+  "Author": "Lin Sivvi",
+  "Name": "Rangefinder",
+  "InternalName": "Rangefinder",
+  "AssemblyVersion": "2.0.0.0",
+  "Description": "Shows you precisely how far your target is.",
+  "ApplicableVersion": "any",
+  "RepoUrl": "https://github.com/mousseng/xivtools",
+  "DalamudApiLevel": 5,
+  "LoadPriority": 0
+}
