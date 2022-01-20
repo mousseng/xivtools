@@ -10,6 +10,7 @@
         "RepoUrl": "https://github.com/mousseng/xivtools",
         "ApplicableVersion": "any",
         "CategoryTags": [
+            "UI"
         ],
         "DalamudApiLevel": 5,
         "IconUrl": "",
@@ -35,6 +36,7 @@
         "RepoUrl": "https://github.com/mousseng/xivtools",
         "ApplicableVersion": "any",
         "CategoryTags": [
+            "Utility"
         ],
         "DalamudApiLevel": 5,
         "IconUrl": "",
