@@ -26,7 +26,7 @@ public sealed class Plugin : IDalamudPlugin
         this.PluginInterface = pluginInterface;
         this.Framework = framework;
         
-        FrameworkHelper.Initialize(scanner, gui);
+        GameHelper.Initialize(scanner, gui);
         this.RangefinderUi = new(clientState, targetManager);
 
         this.Framework.Update += this.OnFrameworkUpdate;

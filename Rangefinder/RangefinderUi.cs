@@ -6,6 +6,11 @@ using Dalamud.Game.ClientState.Objects;
 using Dalamud.Game.ClientState.Objects.Types;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 
+/// <summary>
+/// Displays the precise distance to a target within the
+/// game UI proper. Shamelessly ripped from SimpleTweaks:
+/// https://github.com/Caraxi/SimpleTweaksPlugin
+/// </summary>
 public sealed unsafe class RangefinderUi : IDisposable
 {
     private ClientState ClientState { get; }
@@ -33,13 +38,13 @@ public sealed unsafe class RangefinderUi : IDisposable
         var target = this.TargetManager.SoftTarget ?? this.TargetManager.Target;
         if (target != null || reset)
         {
-            var ui = FrameworkHelper.GetUnitBase("_TargetInfo", 1);
+            var ui = GameHelper.GetUnitBase("_TargetInfo", 1);
             if (ui != null && (ui->IsVisible || reset))
             {
                 this.UpdateMainTarget(ui, target, reset);
             }
                 
-            var splitUi = FrameworkHelper.GetUnitBase("_TargetInfoMainTarget", 1);
+            var splitUi = GameHelper.GetUnitBase("_TargetInfoMainTarget", 1);
             if (splitUi != null && (splitUi->IsVisible || reset))
             {
                 this.UpdateMainTargetSplit(splitUi, target, reset);
@@ -48,7 +53,7 @@ public sealed unsafe class RangefinderUi : IDisposable
             
         if (this.TargetManager.FocusTarget != null || reset)
         {
-            var ui = FrameworkHelper.GetUnitBase("_FocusTargetInfo", 1);
+            var ui = GameHelper.GetUnitBase("_FocusTargetInfo", 1);
             if (ui != null && (ui->IsVisible || reset))
             {
                 this.UpdateFocusTarget(ui, this.TargetManager.FocusTarget, reset);
@@ -65,7 +70,7 @@ public sealed unsafe class RangefinderUi : IDisposable
         
         var gauge = (AtkComponentNode*) unitBase->UldManager.NodeList[36];
         var textNode = (AtkTextNode*) unitBase->UldManager.NodeList[39];
-        UiHelper.SetSize(unitBase->UldManager.NodeList[37], reset ? 44 : 0, reset ? 20 : 0);
+        GameHelper.SetSize(unitBase->UldManager.NodeList[37], reset ? 44 : 0, reset ? 20 : 0);
 
         this.UpdateGaugeBar(
             gauge,
@@ -107,7 +112,7 @@ public sealed unsafe class RangefinderUi : IDisposable
         
         var gauge = (AtkComponentNode*) unitBase->UldManager.NodeList[5];
         var textNode = (AtkTextNode*) unitBase->UldManager.NodeList[8];
-        UiHelper.SetSize(unitBase->UldManager.NodeList[6], reset ? 44 : 0, reset ? 20 : 0);
+        GameHelper.SetSize(unitBase->UldManager.NodeList[6], reset ? 44 : 0, reset ? 20 : 0);
 
         this.UpdateGaugeBar(
             gauge,
@@ -140,13 +145,13 @@ public sealed unsafe class RangefinderUi : IDisposable
     
         if (textNode == null)
         {
-            textNode = UiHelper.CloneNode(cloneTextNode);
+            textNode = GameHelper.CloneNode(cloneTextNode);
             textNode->AtkResNode.NodeID = CustomNodes.Range;
-            var newStrPtr = FrameworkHelper.Alloc(512);
+            var newStrPtr = GameHelper.Alloc(512);
             textNode->NodeText.StringPtr = (byte*) newStrPtr;
             textNode->NodeText.BufSize = 512;
             textNode->SetText("");
-            UiHelper.ExpandNodeList(gauge, 1);
+            GameHelper.ExpandNodeList(gauge, 1);
             gauge->Component->UldManager.NodeList[gauge->Component->UldManager.NodeListCount++] = (AtkResNode*) textNode;
     
             var nextNode = gauge->Component->UldManager.RootNode;
@@ -164,15 +169,15 @@ public sealed unsafe class RangefinderUi : IDisposable
     
         if (reset)
         {
-            UiHelper.Hide(textNode);
+            GameHelper.Hide(textNode);
             return;
         }
     
         textNode->AlignmentFontType = (byte)AlignmentType.BottomRight;
         
-        UiHelper.SetPosition(textNode, positionOffset.X, positionOffset.Y);
-        UiHelper.SetSize(textNode, gauge->AtkResNode.Width - 5, gauge->AtkResNode.Height);
-        UiHelper.Show(textNode);
+        GameHelper.SetPosition(textNode, positionOffset.X, positionOffset.Y);
+        GameHelper.SetSize(textNode, gauge->AtkResNode.Width - 5, gauge->AtkResNode.Height);
+        GameHelper.Show(textNode);
         textNode->TextColor = cloneTextNode->TextColor;
         textNode->EdgeColor = cloneTextNode->EdgeColor;
         textNode->FontSize = FontSize; // cloneTextNode->FontSize;
