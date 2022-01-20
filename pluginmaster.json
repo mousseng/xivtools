@@ -1,54 +1,38 @@
-﻿[
-    {
-        "Author": "Lin Sivvi",
-        "Name": "Rangefinder",
-        "Punchline": "Shows you precisely how far your target is.",
-        "Description": "Shows you precisely how far your target is.",
-        "Changelog": "",
-        "InternalName": "Rangefinder",
-        "AssemblyVersion": "2.0.0.0",
-        "RepoUrl": "https://github.com/mousseng/xivtools",
-        "ApplicableVersion": "any",
-        "CategoryTags": [
-            "UI"
-        ],
-        "DalamudApiLevel": 5,
-        "IconUrl": "",
-        "ImageUrls": [
-            ""
-        ],
-        "DownloadLinkInstall": "https://github.com/mousseng/xivtools/raw/main/plugins/Rangefinder/latest.zip",
-        "IsHide": false,
-        "IsTestingExclusive": false,
-        "DownloadLinkTesting": "https://github.com/mousseng/xivtools/raw/main/plugins/Rangefinder/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/mousseng/xivtools/raw/main/plugins/Rangefinder/latest.zip",
-        "DownloadCount": 0,
-        "LastUpdated": ""
-    },
-    {
-        "Author": "Lin Sivvi",
-        "Name": "Spiritbond Watcher",
-        "Punchline": "Tells you when to extract materia when you're actually paying attention.",
-        "Description": "Tells you when to extract materia when you're actually paying attention.",
-        "Changelog": "",
-        "InternalName": "SpiritbondWatcher",
-        "AssemblyVersion": "1.0.0.0",
-        "RepoUrl": "https://github.com/mousseng/xivtools",
-        "ApplicableVersion": "any",
-        "CategoryTags": [
-            "Utility"
-        ],
-        "DalamudApiLevel": 5,
-        "IconUrl": "",
-        "ImageUrls": [
-            ""
-        ],
-        "DownloadLinkInstall": "https://github.com/mousseng/xivtools/raw/main/plugins/SpiritbondWatcher/latest.zip",
-        "IsHide": false,
-        "IsTestingExclusive": false,
-        "DownloadLinkTesting": "https://github.com/mousseng/xivtools/raw/main/plugins/SpiritbondWatcher/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/mousseng/xivtools/raw/main/plugins/SpiritbondWatcher/latest.zip",
-        "DownloadCount": 0,
-        "LastUpdated": ""
-    }
+[
+  {
+    "Author": "Lin Sivvi",
+    "Name": "Rangefinder",
+    "InternalName": "Rangefinder",
+    "AssemblyVersion": "2.0.0.0",
+    "Description": "Shows you precisely how far your target is.",
+    "ApplicableVersion": "any",
+    "RepoUrl": "https://github.com/mousseng/xivtools",
+    "DalamudApiLevel": 5,
+    "LoadPriority": 0,
+    "IsHide": "False",
+    "IsTestingExclusive": "False",
+    "DownloadCount": 0,
+    "LastUpdate": "1642717416",
+    "DownloadLinkInstall": "https://raw.githubusercontent.com/mousseng/xivtools/main/plugins/Rangefinder/latest.zip",
+    "DownloadLinkTesting": "https://raw.githubusercontent.com/mousseng/xivtools/main/plugins/Rangefinder/latest.zip",
+    "DownloadLinkUpdate": "https://raw.githubusercontent.com/mousseng/xivtools/main/plugins/Rangefinder/latest.zip"
+  },
+  {
+    "Author": "Lin Sivvi",
+    "Name": "Spiritbond Watcher",
+    "InternalName": "SpiritbondWatcher",
+    "AssemblyVersion": "1.0.0.0",
+    "Description": "Tells you when to extract materia when you're actually paying attention.",
+    "ApplicableVersion": "any",
+    "RepoUrl": "https://github.com/mousseng/xivtools",
+    "DalamudApiLevel": 5,
+    "LoadPriority": 0,
+    "IsHide": "False",
+    "IsTestingExclusive": "False",
+    "DownloadCount": 0,
+    "LastUpdate": "1642717416",
+    "DownloadLinkInstall": "https://raw.githubusercontent.com/mousseng/xivtools/main/plugins/SpiritbondWatcher/latest.zip",
+    "DownloadLinkTesting": "https://raw.githubusercontent.com/mousseng/xivtools/main/plugins/SpiritbondWatcher/latest.zip",
+    "DownloadLinkUpdate": "https://raw.githubusercontent.com/mousseng/xivtools/main/plugins/SpiritbondWatcher/latest.zip"
+  }
 ]
