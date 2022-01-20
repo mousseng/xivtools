@@ -6,8 +6,8 @@
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
-        <AssemblyVersion>2.0</AssemblyVersion>
-        <FileVersion>2.0</FileVersion>
+        <AssemblyVersion>2.1</AssemblyVersion>
+        <FileVersion>2.1</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup>

@@ -184,7 +184,7 @@ public sealed unsafe class RangefinderUi : IDisposable
         
         
         var player = this.ClientState.LocalPlayer;
-        if (player != null && target is Character)
+        if (player != null && player.ObjectId != target.ObjectId && target is Character)
         {
             var src = player.Position;
             var dst = target.Position;
