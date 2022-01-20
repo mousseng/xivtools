@@ -9,4 +9,14 @@
             HandleImages="true"
             ManifestType="yaml"/>
     </Target>
+
+<!--    <Target Name="PublishPlugin" AfterTargets="PackagePlugin">-->
+<!--        <Message Text="Copying Dalamud package" Importance="High" />-->
+
+<!--        <Copy-->
+<!--                SourceFiles="$(OutputPath)$(ProjectName)\latest.zip;$(OutputPath)$(ProjectName)\$(ProjectName).json;"-->
+<!--                DestinationFolder="$(ProjectDir)..\plugins\$(ProjectName)" />-->
+
+<!--        <Message Text="Finished copying Dalamud package" Importance="High" />-->
+<!--    </Target>-->
 </Project>

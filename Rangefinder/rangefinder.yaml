@@ -1,4 +1,6 @@
 ﻿name: Rangefinder
 author: Lin Sivvi
 description: A test plugin
+internal_name: Rangefinder
+repo_url: https://github.com/mousseng/xivtools
 dalamud_api_level: 5

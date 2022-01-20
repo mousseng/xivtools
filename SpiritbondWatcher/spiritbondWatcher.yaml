@@ -1,4 +1,6 @@
 ﻿name: Spiritbond Watcher
 author: Lin Sivvi
 description: Tells you when to extract materia when you're actually paying attention.
+internal_name: SpiritbondWatcher
+repo_url: https://github.com/mousseng/xivtools
 dalamud_api_level: 5
