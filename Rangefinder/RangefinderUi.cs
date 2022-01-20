@@ -6,7 +6,7 @@ using Dalamud.Game.ClientState.Objects;
 using Dalamud.Game.ClientState.Objects.Types;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 
-public sealed unsafe class RangefinderUi
+public sealed unsafe class RangefinderUi : IDisposable
 {
     private ClientState ClientState { get; }
     private TargetManager TargetManager { get; }
@@ -21,6 +21,11 @@ public sealed unsafe class RangefinderUi
     {
         this.ClientState = clientState;
         this.TargetManager = targetManager;
+    }
+
+    public void Dispose()
+    {
+        this.DrawGameUi(true);
     }
 
     public void DrawGameUi(bool reset = false)

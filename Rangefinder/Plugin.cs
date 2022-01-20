@@ -40,5 +40,6 @@ public sealed class Plugin : IDalamudPlugin
     public void Dispose()
     {
         this.Framework.Update -= this.OnFrameworkUpdate;
+        this.RangefinderUi.Dispose();
     }
 }
