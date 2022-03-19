@@ -11,12 +11,14 @@ public sealed class Plugin : IDalamudPlugin
 {
     public string Name => "Spiritbond Watcher";
     private const string Command = "/sbw";
-    
-    private DalamudPluginInterface PluginInterface { get; }
-    private CommandManager CommandManager { get; }
-    private ClientState Client { get; }
-    private DataManager Data { get; }
-    private ChatGui Chat { get; }
+
+    private DalamudPluginInterface PluginInterface { get; init; }
+    private CommandManager CommandManager { get; init; }
+    private ClientState Client { get; init; }
+    private DataManager Data { get; init; }
+    private ChatGui Chat { get; init; }
+    private Config Config { get; init; }
+    private ConfigUI ConfigUI { get; init; }
 
     public Plugin(
         [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
@@ -31,18 +33,38 @@ public sealed class Plugin : IDalamudPlugin
         this.Data = data;
         this.Chat = chat;
 
-        this.CommandManager.AddHandler(Command, new CommandInfo(this.OnCommand));
+        this.Config = this.PluginInterface.GetPluginConfig() as Config ?? new Config();
+        this.Config.Initialize(this.PluginInterface);
+        this.ConfigUI = new ConfigUI(this.Config);
+
+        this.CommandManager.AddHandler(Command, new CommandInfo(this.OnCommand)
+        {
+            HelpMessage = "Display bonded gear"
+        });
         this.Client.TerritoryChanged += this.OnZoneChange;
+
+        this.PluginInterface.UiBuilder.Draw += DrawUI;
+        this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
     }
 
     private void OnZoneChange(object? sender, ushort e)
     {
-        this.OnCommand(Command, "");
+        this.OnCommand(Command, "zone");
     }
 
     private void OnCommand(string cmd, string args)
     {
-        Task.Run(() => GearChecker.CheckGear(this.Data, this.Chat));
+        Task.Run(() => GearChecker.CheckGear(this.Data, this.Chat, this.Config, args));
+    }
+
+    private void DrawUI()
+    {
+        this.ConfigUI.Draw();
+    }
+
+    private void DrawConfigUI()
+    {
+        this.ConfigUI.Visible = true;
     }
 
     public void Dispose()
