@@ -2,7 +2,7 @@
 
 using Dalamud.Data;
 using Dalamud.Game.Gui;
-using Dalamud.Game.Text;
+using Dalamud.Game.Text.SeStringHandling;
 using FFXIVClientStructs.FFXIV.Client.Game;
 using Lumina.Excel.GeneratedSheets;
 
@@ -27,7 +27,7 @@ public static class GearChecker
         // InventoryType.Inventory4,
     };
     
-    public static void CheckGear(DataManager data, ChatGui chat)
+    public static void CheckGear(DataManager data, ChatGui chat, Config config, string args)
     {
         var items =
             (from bondedItem in Inventory.GetBondedItems(InventoriesToSearch)
@@ -35,12 +35,33 @@ public static class GearChecker
                     on bondedItem equals item.RowId
                 select item.Name).ToList();
 
+        var stringBuilder = new SeStringBuilder();
+        stringBuilder.AddUiForeground(34);
+
         if (items.Any())
         {
-            chat.PrintChat(new XivChatEntry
+            var newLine = config.BondedGearDisplayLineByLine;
+            string message = "Gear fully bonded:" + (newLine ? "\n" : " ");
+
+            if (items.Count > 10)
             {
-                Message = "Gear fully bonded: " + string.Join(", ", items)
-            });
+                message += string.Join((newLine ? "\n" : ", "), items.Take(10));
+                message += String.Format((newLine ? "\n({0} more)" : " and {0} more"), items.Count - 10);
+            }
+            else
+            {
+                message += string.Join((newLine ? "\n" : ", "), items);
+            }
+
+            stringBuilder.AddText(message);
+            chat.Print(stringBuilder.BuiltString);
+        }
+        else if(args != "zone")
+        {
+            string message = "No gear fully bonded";
+
+            stringBuilder.AddText(message);
+            chat.Print(stringBuilder.BuiltString);
         }
     }
 }
